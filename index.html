@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="main.css" rel="stylesheet">
-    <title>JavaScript Assignments</title>
 </head>
 <body>
 
@@ -12,10 +11,10 @@
 
     <h2>JavaScript Assignments</h2>
 
-    <button onclick="largestOfTwoNumbers(10, 20)">Find Largest of Two Numbers</button>
+     <button onclick="largestOfTwoNumbers(10, 20)">Find Largest of Two Numbers</button>
     <button onclick="findSignOfProduct(-3, 7, 2)">Find Sign of Product</button>
     <button onclick="sortThreeNumbers(3, 1, 2)">Sort Three Numbers</button>
-    <button onclick="findLargestOfFive([5, 2, 9, 1, 7])">Find Largest of Five Numbers</button>
+      <button onclick="findLargestOfFive([5, 2, 9, 1, 7])">Find Largest of Five Numbers</button>
     <button onclick="checkOddEven()">Check Odd or Even (0 to 15)</button>
     <button onclick="computeGrade([80, 77, 88, 95, 68])">Compute Average Marks and Grade</button>
     <button onclick="fizzBuzz()">FizzBuzz (1 to 100)</button>
@@ -25,12 +24,12 @@
 </div>
 
 <script>
-     function largestOfTwoNumbers(num1, num2) {
+        function largestOfTwoNumbers(num1, num2) {
         let largest = (num1 > num2) ? num1 : num2;
         alert("The largest number between " + num1 + " and " + num2 + " is: " + largest);
     }
 
-    function findSignOfProduct(num1, num2, num3) {
+        function findSignOfProduct(num1, num2, num3) {
         let product = num1 * num2 * num3;
         if (product > 0) {
             alert("The sign is +");
@@ -39,7 +38,7 @@
         }
     }
 
-    function sortThreeNumbers(a, b, c) {
+        function sortThreeNumbers(a, b, c) {
         let sorted = [a, b, c].sort((x, y) => y - x);
         alert("The numbers in sorted order: " + sorted.join(", "));
     }
@@ -77,6 +76,7 @@
         } else {
             grade = 'F';
         }
+
 
         alert("The average marks are " + average + " and the grade is " + grade);
     }
