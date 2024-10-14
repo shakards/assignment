@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="main.css" rel="stylesheet">
+    <title>JavaScript Assignments</title>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>JavaScript Assignments</h2>
+
+    <button onclick="largestOfTwoNumbers(10, 20)">Find Largest of Two Numbers</button>
+    <button onclick="findSignOfProduct(-3, 7, 2)">Find Sign of Product</button>
+    <button onclick="sortThreeNumbers(3, 1, 2)">Sort Three Numbers</button>
+    <button onclick="findLargestOfFive([5, 2, 9, 1, 7])">Find Largest of Five Numbers</button>
+    <button onclick="checkOddEven()">Check Odd or Even (0 to 15)</button>
+    <button onclick="computeGrade([80, 77, 88, 95, 68])">Compute Average Marks and Grade</button>
+    <button onclick="fizzBuzz()">FizzBuzz (1 to 100)</button>
+    <button onclick="findFirstFiveHappyNumbers()">Find First 5 Happy Numbers</button>
+    <button onclick="findArmstrongNumbers()">Find Armstrong Numbers (3 Digits)</button>
+    <button onclick="alert('GCD of 56 and 98 is: ' + gcd(56, 98))">Find GCD</button>
+</div>
+
+<script>
+     function largestOfTwoNumbers(num1, num2) {
+        let largest = (num1 > num2) ? num1 : num2;
+        alert("The largest number between " + num1 + " and " + num2 + " is: " + largest);
+    }
+
+    function findSignOfProduct(num1, num2, num3) {
+        let product = num1 * num2 * num3;
+        if (product > 0) {
+            alert("The sign is +");
+        } else {
+            alert("The sign is -");
+        }
+    }
+
+    function sortThreeNumbers(a, b, c) {
+        let sorted = [a, b, c].sort((x, y) => y - x);
+        alert("The numbers in sorted order: " + sorted.join(", "));
+    }
+
+    function findLargestOfFive(numbers) {
+        let largest = Math.max(...numbers);
+        alert("The largest number is " + largest);
+    }
+
+    function checkOddEven() {
+        let result = '';
+        for (let i = 0; i <= 15; i++) {
+            if (i % 2 === 0) {
+                result += i + " is even\n";
+            } else {
+                result += i + " is odd\n";
+            }
+        }
+        alert(result);
+    }
+
+    function computeGrade(marks) {
+        let sum = marks.reduce((acc, mark) => acc + mark, 0);
+        let average = sum / marks.length;
+        let grade;
+
+        if (average >= 90) {
+            grade = 'A';
+        } else if (average >= 80) {
+            grade = 'B';
+        } else if (average >= 70) {
+            grade = 'C';
+        } else if (average >= 60) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+
+        alert("The average marks are " + average + " and the grade is " + grade);
+    }
+
+    function fizzBuzz() {
+        let result = '';
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 === 0 && i % 5 === 0) {
+                result += "FizzBuzz\n";
+            } else if (i % 3 === 0) {
+                result += "Fizz\n";
+            } else if (i % 5 === 0) {
+                result += "Buzz\n";
+            } else {
+                result += i + "\n";
+            }
+        }
+        alert(result);
+    }
+
+    function isHappyNumber(num) {
+        let seen = new Set();
+        while (num !== 1 && !seen.has(num)) {
+            seen.add(num);
+            num = num.toString().split('').reduce((sum, digit) => sum + Math.pow(Number(digit), 2), 0);
+        }
+        return num === 1;
+    }
+
+    function findFirstFiveHappyNumbers() {
+        let count = 0, num = 1;
+        let result = '';
+        while (count < 5) {
+            if (isHappyNumber(num)) {
+                result += num + " is a happy number\n";
+                count++;
+            }
+            num++;
+        }
+        alert(result);
+    }
+
+    function findArmstrongNumbers() {
+        let result = '';
+        for (let i = 100; i <= 999; i++) {
+            let digits = i.toString().split('');
+            let sum = digits.reduce((acc, digit) => acc + Math.pow(Number(digit), 3), 0);
+            if (sum === i) {
+                result += i + " is an Armstrong number\n";
+            }
+        }
+        alert(result);
+    }
+
+    function gcd(a, b) {
+        while (b !== 0) {
+            let temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+</script>
+
+</body>
+</html>
